@@ -1,0 +1,33 @@
+{
+  "name": "two-product",
+  "version": "0.0.0",
+  "description": "Multiplies two floating point numbers together producing a non-overlapping increasing sequence of floats",
+  "main": "two-product.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "tape": "~1.1.0"
+	},
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/two-product.git"
+  },
+  "keywords": [
+    "robust",
+    "float",
+    "multiply",
+    "product",
+    "shewchuk"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikolalysenko/two-product/issues"
+  }
+}
