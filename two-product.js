@@ -22,12 +22,12 @@ function twoProduct(a, b, result) {
 	var err3 = err2 - (ahi * blo)
 	
 	var y = alo * blo - err3
-	
+
 	if(result) {
-		result[0] = y
-		result[1] = x
+		result[0] = y || 0.0
+		result[1] = x || 0.0
 		return result
 	}
 	
-	return [ y, x ]
+	return [ y || 0.0, x || 0.0 	]
 }

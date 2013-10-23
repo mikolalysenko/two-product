@@ -1,6 +1,6 @@
 {
   "name": "two-product",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Multiplies two floating point numbers together producing a non-overlapping increasing sequence of floats",
   "main": "two-product.js",
   "directories": {
