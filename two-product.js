@@ -2,17 +2,17 @@
 
 module.exports = twoProduct
 
-var HALF_DOUBLE = (1<<26) + 1
+var SPLITTER = +(Math.pow(2, 26) + 1.0)
 
 function twoProduct(a, b, result) {
 	var x = a * b
 
-	var c = HALF_DOUBLE * a
+	var c = SPLITTER * a
 	var abig = c - a
 	var ahi = c - abig
 	var alo = a - ahi
 	
-	var d = HALF_DOUBLE * b
+	var d = SPLITTER * b
 	var bbig = d - b
 	var bhi = d - bbig
 	var blo = b - bhi
@@ -24,10 +24,10 @@ function twoProduct(a, b, result) {
 	var y = alo * blo - err3
 
 	if(result) {
-		result[0] = y || 0.0
-		result[1] = x || 0.0
+		result[0] = y
+		result[1] = x
 		return result
 	}
 	
-	return [ y || 0.0, x || 0.0 	]
+	return [ y, x ]
 }
