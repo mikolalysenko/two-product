@@ -1,6 +1,6 @@
 {
   "name": "two-product",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Multiplies two floating point numbers together producing a non-overlapping increasing sequence of floats",
   "main": "two-product.js",
   "directories": {
@@ -9,7 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "tape": "^2.12.3",
-    "test-float-overlap": "^1.0.1"
+    "test-float-overlap": "^1.0.3"
   },
   "scripts": {
     "test": "tape test/*.js"
