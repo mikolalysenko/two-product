@@ -2,7 +2,7 @@
 
 module.exports = twoProduct
 
-var SPLITTER = +(Math.pow(2, 26) + 1.0)
+var SPLITTER = +(Math.pow(2, 27) + 1.0)
 
 function twoProduct(a, b, result) {
   var x = a * b

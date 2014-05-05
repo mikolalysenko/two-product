@@ -37,7 +37,7 @@ require("tape")(function(t) {
     var na = BN(fa[0]&((1<<24)-1))
     na = na.add(BN(fa[0]>>>24).ishln(24))
     na = na.add(BN(fa[1]).ishln(32))
-    na.ishln(ea+1024)
+    na.ishln(ea+2000)
     if(a < 0) {
       return na.neg()
     }
@@ -47,7 +47,7 @@ require("tape")(function(t) {
   function testTwoProduct(a, b, s) {
     var nr = floatToBigNum(a).mul(floatToBigNum(b))
     if(nr.bitLength()>0) {
-      nr = nr.ishrn(1024+52)
+      nr = nr.ishrn(2000+52)
     }
     var ns = floatToBigNum(s[0]).add(floatToBigNum(s[1]))
     t.equals(ns.toString(16), nr.toString(16), "test vs exact")
