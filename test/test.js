@@ -8,8 +8,6 @@ var db = require("double-bits")
 require("tape")(function(t) {
   var testValues = [
     0, 
-    -0,
-    -1, 
     1,
     Math.pow(2, -52), 
     Math.pow(2, -53), 
@@ -21,10 +19,16 @@ require("tape")(function(t) {
     0.5,
     3,
     1.5,
+    0.1,
+    0.3,
+    0.7,
     1.2399519200255505e-149 ]
   for(var i=0; i<20; ++i) {
     testValues.push(Math.random())
     testValues.push(Math.random() * Math.pow(2, 1000 * Math.random() - 500))
+  }
+  for(var i=testValues.length-1; i>0; --i) {
+    testValues.push(-testValues[i])
   }
 
   function floatToBigNum(a) {
@@ -34,6 +38,9 @@ require("tape")(function(t) {
     na = na.add(BN(fa[0]>>>24).ishln(24))
     na = na.add(BN(fa[1]).ishln(32))
     na.ishln(ea+1024)
+    if(a < 0) {
+      return na.neg()
+    }
     return na
   }
 
