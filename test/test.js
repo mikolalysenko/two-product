@@ -21,8 +21,7 @@ require("tape")(function(t) {
     1.5,
     0.1,
     0.3,
-    0.7,
-    1.2399519200255505e-149 ]
+    0.7 ]
   for(var i=0; i<20; ++i) {
     testValues.push(Math.random())
     testValues.push(Math.random() * Math.pow(2, 1000 * Math.random() - 500))
@@ -51,6 +50,10 @@ require("tape")(function(t) {
     }
     var ns = floatToBigNum(s[0]).add(floatToBigNum(s[1]))
     t.equals(ns.toString(16), nr.toString(16), "test vs exact")
+    if(ns.toString(16) !== nr.toString(16)) {
+      console.log(a, b, s)
+      throw new Error("DIE")
+    }
   }  
 
   for(var j=0; j<testValues.length; ++j) {
