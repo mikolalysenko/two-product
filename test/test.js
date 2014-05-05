@@ -2,6 +2,8 @@
 
 var twoProduct = require("../two-product.js")
 var testOverlap = require("test-float-overlap")
+var BN = require("bn.js")
+var db = require("double-bits")
 
 require("tape")(function(t) {
   var testValues = [
@@ -25,6 +27,25 @@ require("tape")(function(t) {
     testValues.push(Math.random() * Math.pow(2, 1000 * Math.random() - 500))
   }
 
+  function floatToBigNum(a) {
+    var fa = db.fraction(a)
+    var ea = db.exponent(a)
+    var na = BN(fa[0]&((1<<24)-1))
+    na = na.add(BN(fa[0]>>>24).ishln(24))
+    na = na.add(BN(fa[1]).ishln(32))
+    na.ishln(ea+1024)
+    return na
+  }
+
+  function testTwoProduct(a, b, s) {
+    var nr = floatToBigNum(a).mul(floatToBigNum(b))
+    if(nr.bitLength()>0) {
+      nr = nr.ishrn(1024+52)
+    }
+    var ns = floatToBigNum(s[0]).add(floatToBigNum(s[1]))
+    t.equals(ns.toString(16), nr.toString(16), "test vs exact")
+  }  
+
   for(var j=0; j<testValues.length; ++j) {
     var a = testValues[j]
     t.ok(a*a < Infinity, "check finite: " + a)
@@ -43,6 +64,8 @@ require("tape")(function(t) {
 
       var r = twoProduct(b, a)
       t.same(s, r, "commutativity")
+
+      testTwoProduct(a, b, s)
     }
   }
 
