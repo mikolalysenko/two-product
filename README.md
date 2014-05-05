@@ -36,4 +36,4 @@ Multiplies `a` and `b` and returns the product as a non-overlapping sequence.  `
 **Note** This algorithm does not work correctly with denormalized numbers.
 
 ## Credits
-Based on JRS' 
+JavaScript implementation (c) 2013-2014 Mikola Lysenko.  Based on ideas from Jonathan Shewchuk's [robust adaptive geometric predicates](http://www.cs.cmu.edu/~quake/robust.html).
