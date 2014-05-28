@@ -2,6 +2,10 @@ two-product
 ===========
 Computes the product of two floating point numbers as a 2-term nonoverlapping increasing sequence.
 
+[![testling badge](https://ci.testling.com/mikolalysenko/two-product.png)](https://ci.testling.com/mikolalysenko/two-product)
+
+[![build status](https://secure.travis-ci.org/mikolalysenko/two-product.png)](http://travis-ci.org/mikolalysenko/two-product)
+
 ## Install
 
 ```
